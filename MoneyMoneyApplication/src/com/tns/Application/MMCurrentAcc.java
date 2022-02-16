@@ -2,33 +2,47 @@ package com.tns.Application;
 
 import com.tns.Framework.CurrentAcc;
 
-
 public class MMCurrentAcc extends CurrentAcc {
-	
+
 	public MMCurrentAcc(int accNo, String accNm, float accBal, float creditLimit) {
-		super(accNo, accNm, accBal,creditLimit);
-	
-		
-}
-	public void withdraw(float accBal)
-	{
-		float withdraw=25000;
-		if(accBal>=withdraw) {
-			System.out.println(accNo+" "+accNm+" "+"withdrawn:"+" "+ withdraw);
-			accBal-=withdraw;
-			System.out.println("balance after withdraw:"+accBal);}
-		else {
-			System.out.println(accNm+"you cannot withdraw"+withdraw);
-			
-		}
+		super(accNo, accNm, accBal, creditLimit);
 	}
-	
+
+	@Override
+	public void withdraw(float amount) {
+		super.withdraw(amount);
+		//lazy initialization 
+		if(amount>getCreditLimit()) {
+			System.out.println("Exceeding creditLimit");
+		}
+		else if(amount> getAccBal()) {
+			System.out.println("Insufficient Balance!!!");
+		}else {
+			try {
+			setAccBal(getAccBal()-amount);
+			}finally {
+			System.out.println("Transaction successfully completed");
+			}
+		}
 		
-	
+	}
+
 	@Override
 	public String toString() {
-		return "MMCurrentAcc [toString()=" + super.toString() + ", getAccNm()=" + getAccNm() + ", getClass()="
-				+ getClass() + ", hashCode()=" + hashCode() + "]";
+		// TODO Auto-generated method stub
+		return super.toString();
 	}
-}
+
+	@Override
+	public float getAccBal() {
+		// TODO Auto-generated method stub
+		return super.getAccBal();
+	}
+
+	@Override
+	public void setAccBal(float accBal) {
+		// TODO Auto-generated method stub
+		super.setAccBal(accBal);
+	}
 	
+}

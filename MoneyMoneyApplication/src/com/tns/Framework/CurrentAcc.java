@@ -10,28 +10,20 @@ public abstract class CurrentAcc extends BankAcc {
 		super(accNo, accNm, accBal);
 		this.creditLimit = creditLimit;
 	}
-	
-	public void withdraw()
-	{
-		float withdraw=25000;
-		if(accBal>=withdraw) {
-			System.out.println(accNo+" "+accNm+" "+"withdrawn:"+" "+ withdraw);
-			accBal-=withdraw;
-			System.out.println("balance after withdraw:"+accBal);}
-		else {
-			System.out.println(accNm+"you cannot withdraw"+withdraw);
-			
-		}
+     
+	@Override
+	public void withdraw(float amount) {
+		super.withdraw(amount);
+
 	}
-	
-		
-		
-	
 
 	@Override
 	public String toString() {
-		return "CurrentAcc [creditLimit=" + creditLimit + ", toString()=" + super.toString() + ", getAccNm()="
-				+ getAccNm() + ", getClass()=" + getClass() + ", hashCode()=" + hashCode() + "]";
+		return super.toString();
 	}
-	
+	public float getCreditLimit() {
+		return creditLimit;
+		
+	}
+
 }

@@ -1,36 +1,29 @@
 package com.tns.Application;
 
+import com.tns.Framework.BankFactory;
 import com.tns.Framework.CurrentAcc;
 import com.tns.Framework.SavingAcc;
-import com.tns.Framework.BankFactory;
 
-public class MMBankFactory extends BankFactory {
-
+public class MMBankFactory extends BankFactory{
 
 	@Override
-	public SavingAcc getNewSavingAccount(int accNo, String accNm, float accBal, boolean isSalaried) {
-		float withdraw=25000;
-		if(accBal>=withdraw) {
-			System.out.println(accNo+ " " +accNm+" " + "withdrawn:" + " "+ withdraw);
-			accBal-=withdraw;
-			System.out.println("balance after withdraw:" + accBal);}
-		else {
-			System.out.println(accNm + "you cannot withdraw" + withdraw);
-		}
-			
-		 return null;
+	public SavingAcc getNewSavingAccount(int AccNo, String accNm, float accBal, boolean isSalaried) {
 		
-		}
-	
-@Override
-	public CurrentAcc getNewCurrentAccount(int accNo, String accNm, float accBal, float creditLimit){
-	
-	float deposit=45000;
-	System.out.println(accNm+"deposit:"+deposit);
-	accBal+=deposit;
-	System.out.println("balance after deposit:"+accBal);
-		return  null;
+		return  new MMSavingAcc(AccNo, accNm, accBal, isSalaried);
 	}
+
+	@Override
+	public CurrentAcc getNewCurrentAccount(int AccNo, String accNm, float accBal, float creditLimit) {
+		
+		return new MMCurrentAcc(AccNo, accNm, accBal, creditLimit);
+	}
+
+	@Override
+	public String toString() {
+		return "MMBankFactory [toString()=" + super.toString() + "]";
+	}
+	
+	
 }
 
 

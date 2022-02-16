@@ -2,30 +2,37 @@ package com.tns.Application;
 
 import com.tns.Framework.SavingAcc;
 
-public class MMSavingAcc  extends SavingAcc {
+public class MMSavingAcc extends SavingAcc {
 	
-	public static final float MINBAL=1000;
-		
-	
+	private static float MINBAL;
+
 	public MMSavingAcc(int accNo, String accNm, float accBal, boolean isSalaried) {
-		super(accNo, accNm, accBal,isSalaried);
+		super(accNo, accNm, accBal, isSalaried);
+				
+		}
+
+	@Override
+	public void withdraw(float amount) {
+		super.withdraw(amount);
+		
+		MINBAL=getAccBal();
+		if(amount>MINBAL) {
+			System.out.println("Insufficient balance!!!");
+		}else {
+			setAccBal(getAccBal()-amount);
+			System.out.println("Transaction successfully completed");
+		}
+		
 	}
-	public void withdraw(float isSalaried)
-	{
-		float withdraw=1000;
-		super.withdraw(MINBAL);
-	}
+
 
 
 	@Override
 	public String toString() {
-		return "MMSavingAcc [toString()=" + super.toString() + ", isSalaried()=" + isSalaried() + ", getAccNm()="
-				+ getAccNm() + ", getClass()=" + getClass() + ", hashCode()=" + hashCode() + "]";
+		// TODO Auto-generated method stub
+		return super.toString();
 	}
+	
+	
+	
 }
-	
-	
-	
-	
-	
-

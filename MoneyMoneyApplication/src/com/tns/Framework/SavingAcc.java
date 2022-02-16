@@ -1,48 +1,42 @@
 package com.tns.Framework;
 
 public abstract class SavingAcc extends BankAcc {
-	
-	private boolean isSalaried;
-	
-	public SavingAcc(int accNo, String accNm, float accBal, boolean isSalaried) {
+	private boolean isSalary;
+	private static float MINBAL;
+
+	public SavingAcc(int accNo, String accNm, float accBal, boolean isSalary) {
 		super(accNo, accNm, accBal);
-		this.isSalaried = isSalaried;
+		this.setSalary(isSalary);
+
 	}
 
+	@Override
+	public void withdraw(float amount) {
+		super.withdraw(amount);
 
-public void  withdraw(float accBal)
-{
-	float withdraw=25000;
-	if(accBal>=withdraw) {
-		System.out.println(accNo+" "+accNm+" "+"withdrawn:"+" "+ withdraw);
-		accBal-=withdraw;
-		System.out.println("balance after withdraw:"+accBal);}
-	else {
-		System.out.println(accNm+"you cannot withdraw"+withdraw);
-		
 	}
-}
 
-	
-	
+	@Override
+	public String toString() {
+		return super.toString();
+	}
 
+	public boolean isSalary() {
+		return isSalary;
+	}
 
+	public void setSalary(boolean isSalary) {
+		this.isSalary = isSalary;
+	}
 
-@Override
-public String toString() {
-	return "SavingAcc [isSalaried=" + isSalaried + ", toString()=" + super.toString() + ", getAccNm()=" + getAccNm()
-			+ ", getClass()=" + getClass() + ", hashCode()=" + hashCode() + "]";
-}
+	public static float getMINBAL() {
+		return MINBAL;
+	}
 
+	public static void setMINBAL(float mINBAL) {
+		MINBAL = mINBAL;
+	}
 
-public boolean isSalaried() {
-	return isSalaried;
-}
-
-
-public void setSalaried(boolean isSalaried) {
-	this.isSalaried = isSalaried;
-}
 }
 
 
