@@ -12,9 +12,16 @@ public abstract class SavingAcc extends BankAcc {
 
 	@Override
 	public void withdraw(float amount) {
-		super.withdraw(amount);
-
+		if(accBal>=amount) {
+			accBal=accBal-amount;
+			System.out.println("balance after withdrawal:"+accBal);
+		}else {
+			System.out.println("your balance is less than"+amount+"\tTransaction failed...!!");
+		}
+	super.withdraw(amount);
 	}
+
+	
 
 	@Override
 	public String toString() {

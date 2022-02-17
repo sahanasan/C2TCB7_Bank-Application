@@ -1,9 +1,5 @@
 package com.tns.client;
 
-
-
-import java.util.Scanner;
-
 import com.tns.Application.MMBankFactory;
 import com.tns.Framework.BankFactory;
 import com.tns.Framework.CurrentAcc;
@@ -17,35 +13,17 @@ public class Client {
 
 	public static void main(String[] args) {
 		
-		int accNumber =0;
-		String accName ="";
-		float  accBalance = 0.0f;
-		boolean isSalary ;
-		int withDrawAmt =0;
-		float CreditLimit=500;
 		
 
 		factory = new MMBankFactory();
 		
-		Scanner sc =new Scanner(System.in);
 		
-		System.out.println("enter the Account number");
-		accNumber = sc.nextInt();
-		System.out.println("enter the accName");
-		accName = sc.next();
-		System.out.println("enter the accBal");
-		accBalance = sc.nextFloat();
-		System.out.println("enter the isSalary");
-		isSalary = sc.nextBoolean();
-		System.out.println("enter the withdraw amount");
-		withDrawAmt = sc.nextInt();
-		 
-		savingAcc = factory.getNewSavingAccount(accNumber, accName, accBalance, isSalary);
-		savingAcc.withdraw(withDrawAmt);
+		savingAcc = factory.getNewSavingAccount(1233, "qweer", 200000, true);
+		savingAcc.withdraw(500000);
 		System.out.println("Your Account balance is "+savingAcc.getAccBal());
 
-		currentAcc = factory.getNewCurrentAccount(accNumber, accName, accBalance, CreditLimit);
-		currentAcc.withdraw(withDrawAmt);
+		currentAcc = factory.getNewCurrentAccount(2315, "sahana", 50000, 100000);
+		currentAcc.withdraw(2000);
 		System.out.println("Your Account balance is "+currentAcc.getAccBal());
 		
 		System.out.println(currentAcc.toString());
