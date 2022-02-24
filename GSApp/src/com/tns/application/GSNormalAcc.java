@@ -12,6 +12,8 @@ public class GSNormalAcc extends NormalAcc
 	
 	public void bookProduct(float charges)
 	{
+		System.out.println("Dear Normal User, your charges are:" +charges+"  with Delivery charges");
+
 		
 	}
 
