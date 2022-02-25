@@ -9,20 +9,18 @@ public class GSNormalAcc extends NormalAcc
 		super(accNo, accNm, charges, deliveryCharge);
 		// TODO Auto-generated constructor stub
 	}
-	
-	public void bookProduct(float charges)
+	@Override
+	public void bookProduct(float deliverycharges)
 	{
-		System.out.println("Dear Normal User, your charges are:" +charges+"  with Delivery charges");
+		System.out.println("Dear Normal User, your charges are:" +charges+"  with Delivery charges is:"+deliverycharges);
+		
+		
 
 		
-	}
-
-	@Override
+	}@Override
 	public String toString() {
-		return "GSNormalAcc [accNo=" + accNo + ", charges=" + charges + ", toString()=" + super.toString()
-				+ ", getAccNm()=" + getAccNm() + ", getClass()=" + getClass() + ", hashCode()=" + hashCode() + "]";
+		return "GSNormalAcc [accNo=" + getAccNo() + ", accNm=" + getAccNm() +", charges="+ getCharges() + ", toString()="+ super.toString() + ","
+				+ " getAccNm()=" +getAccNm()+", getClass()=" +getClass()+", hashCode()="+ hashCode() +"]";
 	}
-	
-
 }
-
+		

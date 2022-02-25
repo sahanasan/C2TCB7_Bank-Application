@@ -9,7 +9,7 @@ public abstract class NormalAcc extends ShopAcc
 	
 	public NormalAcc(int accNo, String accNm, float charges, float deliveryCharge) {
 		super(accNo, accNm, charges);
-		this.deliveryCharge = deliveryCharge=50;
+		this.deliveryCharge = deliveryCharge;
 	}
 	public void bookProduct(float deliveryCharge)
 	{

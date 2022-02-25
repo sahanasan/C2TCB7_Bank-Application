@@ -28,12 +28,12 @@ public class ClientTest
 			  gsprime.getCharges(); 
 			  gsprime.bookProduct(1000);
 			  gsprime.toString();
-		GSNormalAcc gsnormal = new GSNormalAcc(101, "sahana", 700, 50); 
+		GSNormalAcc gsnormal = new GSNormalAcc(101, "sahana", 1000, 50); 
 			 gsnormal.getAccNm();
 			 gsnormal.getAccNo(); 
 			 gsnormal.getCharges();
 			 gsnormal.getDeliveryCharge();
-			 gsnormal.bookProduct(1000); 
+			 gsnormal.bookProduct(50); 
 			 gsnormal.toString();
 	}
 }
