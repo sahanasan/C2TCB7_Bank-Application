@@ -11,21 +11,16 @@ public abstract class SavingAcc extends BankAcc {
 	}
 
 	@Override
-	public void withdraw(float amount) {
-		if(accBal>=amount) {
-			accBal=accBal-amount;
-			System.out.println("balance after withdrawal:"+accBal);
-		}else {
-			System.out.println("your balance is less than"+amount+"\tTransaction failed...!!");
-		}
-	super.withdraw(amount);
+	public void withdraw(float accBal) 
+	{
+		System.out.println("withdraw accBal are:" + accBal);
 	}
-
-	
+		
 
 	@Override
 	public String toString() {
-		return super.toString();
+		return "BankAcc [accNo=" + accNo + ", accNm=" + getAccNm() + ", accBal=" + accBal + ", getClass()=" + getClass()
+				+ ", hashCode()=" + hashCode() + ", toString()=" + super.toString() + "]";
 	}
 
 	public boolean isSalary() {
@@ -35,15 +30,6 @@ public abstract class SavingAcc extends BankAcc {
 	public void setSalary(boolean isSalary) {
 		this.isSalary = isSalary;
 	}
-
-	public static float getMINBAL() {
-		return MINBAL;
-	}
-
-	public static void setMINBAL(float mINBAL) {
-		MINBAL = mINBAL;
-	}
-
 }
 
 

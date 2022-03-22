@@ -9,40 +9,15 @@ public class MMCurrentAcc extends CurrentAcc {
 	}
 
 	@Override
-	public void withdraw(float amount) {
-		super.withdraw(amount);
-		//lazy initialization 
-		if(amount>getCreditLimit()) {
-			System.out.println("Exceeding creditLimit");
-		}
-		else if(amount> getAccBal()) {
-			System.out.println("Insufficient Balance!!!");
-		}else {
-			try {
-			setAccBal(getAccBal()-amount);
-			}finally {
-			System.out.println("Transaction successfully completed");
-			}
-		}
+	public void withdraw(float accBal) {
 		
+		System.out.println("Dear withdraw users , your accBal are:" + accBal);
 	}
+		
 
 	@Override
 	public String toString() {
 		// TODO Auto-generated method stub
-		return super.toString();
+		return "MMCurrentAcc[]";
 	}
-
-	@Override
-	public float getAccBal() {
-		// TODO Auto-generated method stub
-		return super.getAccBal();
-	}
-
-	@Override
-	public void setAccBal(float accBal) {
-		// TODO Auto-generated method stub
-		super.setAccBal(accBal);
-	}
-	
 }

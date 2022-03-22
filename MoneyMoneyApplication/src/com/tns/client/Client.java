@@ -1,36 +1,58 @@
 package com.tns.client;
 
 import com.tns.Application.MMBankFactory;
+import com.tns.Application.MMCurrentAcc;
+import com.tns.Application.MMSavingAcc;
 import com.tns.Framework.BankFactory;
 import com.tns.Framework.CurrentAcc;
 import com.tns.Framework.SavingAcc;
 
 public class Client {
 
-	private static BankFactory factory;
-	private static SavingAcc savingAcc;
-	private static CurrentAcc currentAcc;
+	 static BankFactory bfobj;
+	static SavingAcc mmsavingobj;
+    static CurrentAcc mmcurrentobj;
 
 	public static void main(String[] args) {
 		
+		MMBankFactory mmbankfactory = new MMBankFactory();
+		mmbankfactory.getNewSavingAccount(1234, "sahana", 20000, false);
+		mmbankfactory.getNewCurrentAccount(4567, "nithin", 10000, 210);
 		
-
-		factory = new MMBankFactory();
-		
-		
-		savingAcc = factory.getNewSavingAccount(1233, "qweer", 200000, true);
-		savingAcc.withdraw(500000);
-		System.out.println("Your Account balance is "+savingAcc.getAccBal());
-
-		currentAcc = factory.getNewCurrentAccount(2315, "sahana", 50000, 100000);
-		currentAcc.withdraw(2000);
-		System.out.println("Your Account balance is "+currentAcc.getAccBal());
-		
-		System.out.println(currentAcc.toString());
-		System.out.println(savingAcc.toString());
+		MMSavingAcc mmsaving = new MMSavingAcc(2345,"sahana",40000,true);
+		System.out.println(".......transcation details........");
+		mmsaving.deposite(40000);
+		mmsaving.setAccNo(2345);
+		mmsaving.setAccNm("sahana");
+		mmsaving.setAccBal(30000);
+		mmsaving.setSalary(true);
+		mmsaving.setCharges(400);
+		mmsaving.withdraw(10000);
+		mmsaving.toString();
+		MMCurrentAcc mmcurrent = new MMCurrentAcc(4567,"nithin",30000,200);
+		System.out.println("............transcation details.......");
+		mmcurrent.deposite(30000);
+		mmcurrent.setAccNo(0);
+		mmcurrent.setAccNm("sahana");
+		mmcurrent.setAccBal(2000);
+		mmcurrent.setCharges(200);
+		mmcurrent.getCreditLimit();
+		mmcurrent.withdraw(10000);
+		mmcurrent.toString();
 	}
-
 }
+	
+		
+		
+
+
+		
+		
+	
+		
+		
+
+		
 	
 	
 	

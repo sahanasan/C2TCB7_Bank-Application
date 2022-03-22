@@ -4,7 +4,11 @@ import com.tns.Framework.SavingAcc;
 
 public class MMSavingAcc extends SavingAcc {
 	
-	private static float MINBAL;
+	private static float MINBAL=0;
+	
+	public float getMINBAL() {
+		return MINBAL;
+	}
 
 	public MMSavingAcc(int accNo, String accNm, float accBal, boolean isSalaried) {
 		super(accNo, accNm, accBal, isSalaried);
@@ -12,25 +16,18 @@ public class MMSavingAcc extends SavingAcc {
 		}
 
 	@Override
-	public void withdraw(float amount) {
-		super.withdraw(amount);
-		
-		MINBAL=getAccBal();
-		if(amount>MINBAL) {
-			System.out.println("Insufficient balance!!!");
-		}else {
-			setAccBal(getAccBal()-amount);
-			System.out.println("Transaction successfully completed");
-		}
-		
+	public void withdraw(float accBal) 
+	{
+		System.out.println("dear withdraw user, your accBal are:" + accBal);
 	}
+		
 
 
 
 	@Override
 	public String toString() {
 		// TODO Auto-generated method stub
-		return super.toString();
+		return "GSSavingAcc[]";
 	}
 	
 	
